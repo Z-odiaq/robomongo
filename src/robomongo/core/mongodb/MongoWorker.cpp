@@ -583,15 +583,18 @@ namespace Robomongo
                 errorStr.contains("FindCommandRequest.ntoreturn", Qt::CaseInsensitive);
 
             // If we have this DocumentDB/Modern Mongo specific error, try again
-            if (ntoreturnError && _dbclient) {
-                sendLog(this, LogEvent::RBM_ERROR, std::string(ex.what()));
-                try {
-                    _dbclient->tagAsDocDb(true);
-                    executeQuery();
-                    return;
-                } 
-                catch (const std::exception &ex) {
-                    sendLog(this, LogEvent::RBM_ERROR, "Re-try: " + std::string(ex.what()));
+            if (ntoreturnError) {
+                mongo::DBClientBase *conn = getConnection(true).first;
+                if (conn) {
+                    sendLog(this, LogEvent::RBM_ERROR, std::string(ex.what()));
+                    try {
+                        conn->tagAsDocDb(true);
+                        executeQuery();
+                        return;
+                    }
+                    catch (const std::exception &ex) {
+                        sendLog(this, LogEvent::RBM_ERROR, "Re-try: " + std::string(ex.what()));
+                    }
                 }
             }
 
