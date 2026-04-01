@@ -1,10 +1,12 @@
-# Robo 3T (2026 Modern Fork)
+# Robo 3T (Fork)
 
 **This is a community-maintained fork of Robo 3T (formerly Robomongo) updated for compatibility with the new versions of Mongodb.**
 
 ---
 
 ## FORK FIXES
+
+**[Download Fixed Release (Windows 64-bit)](https://github.com/Z-odiaq/robomongo/releases/tag/robo3t-1.4.4-fixed)**
 
 As official development has ended, this fork provides support for compatibility with modern environments and MongoDB versions .
 
