@@ -1,3 +1,20 @@
+# Robo 3T (2026 Modern Fork)
+
+**This is a community-maintained fork of Robo 3T (formerly Robomongo) updated for compatibility with the new versions of Mongodb.**
+
+---
+
+## FORK FIXES
+
+As official development has ended, this fork provides support for compatibility with modern environments and MongoDB versions .
+
+### **Core Compatibility Fixes**
+- **Permanent Paging Fix**: Fixed the `FindCommandRequest.ntoreturn` error. The shell driver now correctly uses modern `limit` and `batchSize` fields to browse all pages of documents with no issues.
+- **MongoDB CRUD API**: Migrated legacy write operations (deprecated `getLastError`) to the modern CRUD command-based API (`insert`, `update`, `delete`) with explicit write concerns.
+- **Command Success**: Prevented false "Failed to get error message" errors by handling MongoDB's numeric `ok: 1.0` responses.
+
+---
+
 ## Important
 
 If you are using Studio 3T, please file any feedback on the [Studio 3T Feedback](https://studio3t.com/feedback/) page. If you are using Studio 3T Free, there is the [3T Community](https://community.studio3t.com/) for discussions with a [dedicated Free section](https://community.studio3t.com/c/studio-3t-free/13). Studio 3T does not monitor this repository for Studio 3T issues.
@@ -8,17 +25,12 @@ Robo 3T is no longer being developed by Studio 3T. Studio 3T recommends users lo
 
 Read more about the changes on the [Robo 3T Blog](https://blog.robomongo.org/studio3t-free/).
 
-The last release of Robo 3T is version 1.4.4, downloadable from the following links: 
+The last official release of Robo 3T is version 1.4.4, downloadable from the following links: 
 
 * [Robo 3T Windows .zip](https://download.studio3t.com/robomongo/windows/robo3t-1.4.4-windows-x86_64-e6ac9ec5.zip)
-
 * [Robo 3T Windows .exe](https://download.studio3t.com/robomongo/windows/robo3t-1.4.4-windows-x86_64-e6ac9ec5.exe)
-
 * [Robo 3T Mac](https://download.studio3t.com/robomongo/mac/robo3t-1.4.4-darwin-x86_64-e6ac9ec.dmg)
-
 * [Robo 3T Linux](https://download.studio3t.com/robomongo/linux/robo3t-1.4.4-linux-x86_64-e6ac9ec.tar.gz)
-
-And the source code from [Robo 3T repository](https://github.com/Studio3T/robomongo/latest).
 
 Studio 3T would like to thank the Robo 3T community who used and supported the application, since it was acquired in 2017. This repository, the website and blog will be left online and available to maintain a record of what was one of the most influential MongoDB clients of its time.
 

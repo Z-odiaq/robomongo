@@ -36,7 +36,7 @@ list(FILTER ROBO_SOURCES EXCLUDE REGEX "main.cpp")
 
 if(SYSTEM_WINDOWS)
     set(OBJ_DIR ${CMAKE_BINARY_DIR}/src/robomongo/robomongo.dir/${CMAKE_BUILD_TYPE}/)
-    set(ROBO_OBJ_FILES "${ROBO_OBJ_FILES}${OBJ_DIR}mocs_compilation.obj;")
+    set(ROBO_OBJ_FILES "${ROBO_OBJ_FILES}${OBJ_DIR}mocs_compilation_${CMAKE_BUILD_TYPE}.obj;")
     set(ROBO_OBJ_FILES "${ROBO_OBJ_FILES}${OBJ_DIR}qrc_gui.obj;")
     set(ROBO_OBJ_FILES "${ROBO_OBJ_FILES}${OBJ_DIR}qrc_robo.obj;")
     foreach(SRC_FILE ${ROBO_SOURCES})
@@ -117,7 +117,7 @@ if(SYSTEM_WINDOWS)
     get_target_property(TESTS_BIN_DIR robo_unit_tests BINARY_DIR)
     file(COPY ${QT_BIN_FILES} DESTINATION ${TESTS_BIN_DIR}/${CMAKE_BUILD_TYPE})
     file(COPY 
-        ${OpenSSL_DIR}/libssl-1_1-x64.dll
-        ${OpenSSL_DIR}/libcrypto-1_1-x64.dll
+        ${OpenSSL_DIR}/bin/libssl-1_1-x64.dll
+        ${OpenSSL_DIR}/bin/libcrypto-1_1-x64.dll
         DESTINATION ${TESTS_BIN_DIR}/${CMAKE_BUILD_TYPE})
 endif()
